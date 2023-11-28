@@ -1,5 +1,6 @@
 ﻿using ConsoleAppMejoresPracticas.Entities;
 using ConsoleAppMejoresPracticas.Modelos;
+using MejoresPracticasShareDLL;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -30,7 +31,14 @@ namespace ConsoleAppMejoresPracticas
                 Log.Escribir(1, "INFO", "Termine cargar datos articulo voy a guardar en la DB");
                 db.SaveChanges();
                 Log.Escribir(1, "INFO", "Articulo Guardado en la DB");
-                throw new Exception("Error personalizado");
+                //throw new Exception("Error personalizado");
+
+                Persona persona = new Persona();
+                persona.Nombre = "Juan";
+                persona.Apellido = "Perez";
+                persona.Documento = "23232323";
+
+                Console.WriteLine(persona.Nombre + " " + persona.Apellido);
             }
             catch (Exception ex)
             {

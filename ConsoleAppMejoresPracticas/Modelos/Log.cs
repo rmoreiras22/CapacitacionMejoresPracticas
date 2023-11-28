@@ -28,7 +28,7 @@ namespace ConsoleAppMejoresPracticas.Modelos
             {
                 try
                 {
-                    using (StreamWriter sw = new StreamWriter("c:\\LogAPP.txt"))
+                    using (StreamWriter sw = new StreamWriter("C:\\Users\\rmore\\OneDrive\\Projects\\Time_Solution\\Capacitacion\\MEjoresPracticas\\LogAPP.txt"))
                     {
 
                         sw.WriteLine(ex.Message);
