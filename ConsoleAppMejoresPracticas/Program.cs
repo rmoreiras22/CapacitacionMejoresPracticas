@@ -1,4 +1,5 @@
 ﻿using ConsoleAppMejoresPracticas.Entities;
+using ConsoleAppMejoresPracticas.Modelos;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,6 +17,7 @@ namespace ConsoleAppMejoresPracticas
             LogDBEntities db = new LogDBEntities();
             try
             {
+                Log.Escribir(1, "INFO", "Inicio a cargar articulo");
                 Articulo articuloAAgregarALaDB = new Articulo();
                 articuloAAgregarALaDB.Nombre = "HArina 0000";
                 articuloAAgregarALaDB.Categoria = "Alimentos";
@@ -25,19 +27,21 @@ namespace ConsoleAppMejoresPracticas
                 //agrego el articulo
                 db.Articulos.Add(articuloAAgregarALaDB);
                 //guardo en la DB
+                Log.Escribir(1, "INFO", "Termine cargar datos articulo voy a guardar en la DB");
                 db.SaveChanges();
-
+                Log.Escribir(1, "INFO", "Articulo Guardado en la DB");
                 throw new Exception("Error personalizado");
             }
             catch (Exception ex)
             {
-                AppLog appLog = new AppLog();
-                appLog.Usuario = 1;
-                appLog.Tipo = "EXCEPCION";
-                appLog.Descripcion = "Error guardando articulo en la base de datos " + ex.Message.ToString();
+                Log.Escribir(1, "EXCEPCION", "Error guardando articulo en la base de datos " + ex.Message.ToString());
+                //AppLog appLog = new AppLog();
+                //appLog.Usuario = 1;
+                //appLog.Tipo = "EXCEPCION";
+                //appLog.Descripcion = "Error guardando articulo en la base de datos " + ex.Message.ToString();
 
-                db.AppLogs.Add(appLog);
-                db.SaveChanges();
+                //db.AppLogs.Add(appLog);
+                //db.SaveChanges();
 
                 Console.WriteLine("Error guardando articulo en la base de datos " + ex.Message.ToString());
             }
