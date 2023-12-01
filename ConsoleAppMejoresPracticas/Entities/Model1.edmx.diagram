@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="5a9e74adc67b4547816fd2edca649643" Name="Diagram1">
         <EntityTypeShape EntityType="LogDBModel.AppLog" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LogDBModel.Articulo" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="LogDBModel.Articulo" Width="1.5" PointX="3.375" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

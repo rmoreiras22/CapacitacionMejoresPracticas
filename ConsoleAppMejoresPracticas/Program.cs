@@ -17,7 +17,8 @@ namespace ConsoleAppMejoresPracticas
             LogDBEntities db = new LogDBEntities();
             try
             {
-                Log.Escribir(1, "INFO", "Inicio a cargar articulo");
+                Log.Escribir(1, "INFO", "I" +
+                    "nicio a cargar articulo");
                 Articulo articuloAAgregarALaDB = new Articulo();
                 articuloAAgregarALaDB.Nombre = "HArina 0000";
                 articuloAAgregarALaDB.Categoria = "Alimentos";
@@ -30,7 +31,7 @@ namespace ConsoleAppMejoresPracticas
                 Log.Escribir(1, "INFO", "Termine cargar datos articulo voy a guardar en la DB");
                 db.SaveChanges();
                 Log.Escribir(1, "INFO", "Articulo Guardado en la DB");
-                throw new Exception("Error personalizado");
+               // throw new Exception("Error personalizado");
             }
             catch (Exception ex)
             {

@@ -103,5 +103,11 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MejoresPracticasShareDLL\MejoresPracticasShareDLL.csproj">
+      <Project>{aee6b5b5-2204-4b0d-9994-5fda4dd211ed}</Project>
+      <Name>MejoresPracticasShareDLL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
