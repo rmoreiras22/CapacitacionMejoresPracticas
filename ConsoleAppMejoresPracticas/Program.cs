@@ -1,6 +1,9 @@
-﻿using ConsoleAppMejoresPracticas.Entities;
-using ConsoleAppMejoresPracticas.Modelos;
+﻿
+
 using MejoresPracticasShareDLL;
+using MejoresPracticasShareDLL.Entities;
+using MejoresPracticasShareDLL.Modelos;
+using MejoresPracticasShareDLL.Servicios;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -18,25 +21,33 @@ namespace ConsoleAppMejoresPracticas
             LogDBEntities db = new LogDBEntities();
             try
             {
+
                 Log.Escribir(1, "INFO", "Inicio a cargar articulo");
+                
                 Articulo articuloAAgregarALaDB = new Articulo();
-                articuloAAgregarALaDB.Nombre = "HArina 0000";
+                articuloAAgregarALaDB.Nombre = "Arroz";
                 articuloAAgregarALaDB.Categoria = "Alimentos";
                 articuloAAgregarALaDB.Precio = 1000.9987m;
 
-                
-                //agrego el articulo
-                db.Articulos.Add(articuloAAgregarALaDB);
-                //guardo en la DB
-                Log.Escribir(1, "INFO", "Termine cargar datos articulo voy a guardar en la DB");
-                db.SaveChanges();
-                Log.Escribir(1, "INFO", "Articulo Guardado en la DB");
+                ArticulosServicio articulosServicio = new ArticulosServicio();
+
+                string mensaje = articulosServicio.AgregarArticulo(articuloAAgregarALaDB);
+                Console.WriteLine(mensaje);
+
+                ////agrego el articulo
+                //db.Articulos.Add(articuloAAgregarALaDB);
+                ////guardo en la DB
+                //Log.Escribir(1, "INFO", "Termine cargar datos articulo voy a guardar en la DB");
+                //db.SaveChanges();
+                //Log.Escribir(1, "INFO", "Articulo Guardado en la DB");
                 //throw new Exception("Error personalizado");
 
                 Persona persona = new Persona();
                 persona.Nombre = "Juan";
                 persona.Apellido = "Perez";
                 persona.Documento = "23232323";
+
+                 
 
                 Console.WriteLine(persona.Nombre + " " + persona.Apellido);
             }

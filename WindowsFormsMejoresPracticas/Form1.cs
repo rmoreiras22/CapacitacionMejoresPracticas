@@ -1,4 +1,6 @@
 ﻿using MejoresPracticasShareDLL;
+using MejoresPracticasShareDLL.Entities;
+using MejoresPracticasShareDLL.Servicios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,11 +27,44 @@ namespace WindowsFormsMejoresPracticas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Persona  persona = new Persona();
-            persona.Nombre = textBox1.Text;
-            persona.Apellido = textBox2.Text;
+            Articulo articulo = new Articulo();
+            articulo.Nombre = txtNombre.Text;
+            articulo.Categoria =  txtCategoria.Text;
+            articulo.Precio = Convert.ToDecimal(txtPrecio.Text);
+            articulo.Costo = Convert.ToDecimal(txtCosto.Text);
+            articulo.Color = txtColor.Text;
 
-            MessageBox.Show(persona.Nombre + " " + persona.Apellido);
+            ArticulosServicio articulosServicio = new ArticulosServicio();
+
+            string mensaje = articulosServicio.AgregarArticulo(articulo);
+
+            MessageBox.Show(mensaje);
+
+            //LogDBEntities db = new LogDBEntities();
+            //db.Articulos.Add(articulo);
+
+            //int i = db.SaveChanges();
+
+            //if(i>0)
+            //{
+            //    MessageBox.Show("Articulo Guardado");
+            //}
+            //else
+            //{
+            //    MessageBox.Show("No se pudo guardar articulo");
+            //}
+
+
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
